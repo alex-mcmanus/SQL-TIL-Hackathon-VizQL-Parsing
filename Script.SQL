@@ -21,8 +21,8 @@ SELECT
 -- Extract nested JSON object from other relevant fields, handling different types of content. 
 -- These fields were handpicked by reviewing relevant fields. The main important measures were defined as CPU Metrics and Elapsed Time    
     DATA:a:"elapsed"::FLOAT AS Elapsed,
-    DATA:a:res:kcpu:"i"::FLOAT AS K_CPU,
-    DATA:a:res:ucpu:"i":: FLOAT AS U_CPU,
+    DATA:a:res:kcpu:"i"::FLOAT AS K_CPU, -- KCPU = Kernal CPU, where operating kernal executes. includes looking at system level tasks, such as interrupts, managing memory, and executing system calls.
+    DATA:a:res:ucpu:"i":: FLOAT AS U_CPU, -- UCPU = User CPU, application code executes non-privallaged tasks. This includes user-level processes, such as running Tableau Server processes, or VizQL queries.
     DATA:ctx:"wb"::STRING AS workbook,
     DATA:ctx:"vw"::STRING AS view,
     DATA:ctx:"wb-source"::STRING AS wb_source,
